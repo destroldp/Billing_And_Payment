@@ -21,16 +21,16 @@ public class Invoice {
     private String customerName;
 
     @Temporal(TemporalType.DATE)
-    private Date invoiceDate; // Fix the Data typo to java.util.Date
+    private Date invoiceDate;
 
     @Embedded
-    private BillingInformation billingInformation; // Assuming BillingInformation is an @Embeddable class
+    private BillingInformation billingInformation;
 
     @ElementCollection
-    private List<ItemDetails> itemDetails; // Assuming ItemDetails is an @Entity class
+    private List<ItemDetails> itemDetails;
 
     private BigDecimal subtotal;
-    private BigDecimal tax; // Fix the field name to follow Java naming conventions
+    private BigDecimal tax;
     private BigDecimal shippingCharges;
     private BigDecimal totalAmountDue;
 
@@ -38,4 +38,14 @@ public class Invoice {
     private PaymentMethod paymentMethod;
 
     private String additionalNotes;
+
+    private String createdBy;
+
+    private String modifiedBy;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdOn;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date modifiedOn;
 }

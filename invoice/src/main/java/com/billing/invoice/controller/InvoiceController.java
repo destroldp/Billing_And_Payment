@@ -2,6 +2,7 @@ package com.billing.invoice.controller;
 
 import com.billing.invoice.entity.Invoice;
 import com.billing.invoice.service.InvoiceService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/invoice")
+@RequestMapping("/api/v1/vendor")
 public class InvoiceController {
 
     private final InvoiceService invoiceService;
@@ -29,19 +30,19 @@ public class InvoiceController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Invoice> getInvoiceById(@PathVariable Long id) {
+    public ResponseEntity getInvoiceById(@PathVariable Long id) {
         Optional<Invoice> invoice = invoiceService.getInvoiceById(id);
-        return invoice.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+        return invoice.isPresent() ? ResponseEntity.ok(invoice): ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Invoice found with Invoice Number"+id);
     }
 
     @PostMapping
-    public ResponseEntity<Long> createInvoice(@RequestBody Invoice invoice) {
+    public ResponseEntity<Long> createInvoice(@Valid @RequestBody Invoice invoice) {
         Invoice createdInvoice = invoiceService.createInvoice(invoice);
         return ResponseEntity.ok(createdInvoice.getId());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Invoice> updateInvoice(@PathVariable Long id, @RequestBody Invoice invoice) {
+    public ResponseEntity<Invoice> updateInvoice(@PathVariable Long id,@Valid @RequestBody Invoice invoice) {
         Invoice updatedInvoice = invoiceService.updateInvoice(id, invoice);
         if (updatedInvoice != null) {
             return ResponseEntity.ok(updatedInvoice);
