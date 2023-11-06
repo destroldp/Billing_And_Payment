@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/v1/invoice")
+@RequestMapping("/api/v1/vendor")
 public class VendorController {
 
     private final VendorService vendorService;
@@ -37,11 +37,7 @@ public class VendorController {
         return vendor.isPresent() ? ResponseEntity.ok(vendor): ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Vendor found with Vendor ID"+id);
     }
 
-    @PostMapping
-    public ResponseEntity<Long> createVendor(@RequestBody Vendor vendor) {
-        Vendor createdVendor = vendorService.createVendor(vendor);
-        return ResponseEntity.ok(createdVendor.getId());
-    }
+
 
     @PostMapping("/vendors")
     public ResponseEntity<List<Long>> createVendors(@RequestBody List<Vendor> vendors) {

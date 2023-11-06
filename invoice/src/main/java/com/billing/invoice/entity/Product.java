@@ -19,8 +19,9 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @ManyToOne
     @NotBlank(message = "Product ID is required")
-    private String productId;
+    private ProductDetails productId;
 
     @NotNull(message = "Cost price is required")
     private BigDecimal costPrice;

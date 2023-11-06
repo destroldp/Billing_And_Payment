@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/vendor")
+@RequestMapping("/api/v1/invoice")
 public class InvoiceController {
 
     private final InvoiceService invoiceService;

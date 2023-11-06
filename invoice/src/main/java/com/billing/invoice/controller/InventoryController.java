@@ -11,8 +11,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
 @RestController
-@RequestMapping("/api/v1/inventory")
+@RequestMapping("/api/v1/stock")
 public class InventoryController {
     private final InventoryService inventoryService;
 
@@ -33,13 +34,9 @@ public class InventoryController {
         return product.isPresent() ? ResponseEntity.ok(product): ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Product found with Product ID"+id);
     }
 
-    @PostMapping
-    public ResponseEntity<Long> createProduct(@RequestBody Product product) {
-        Product createdProduct = inventoryService.createProduct(product);
-        return ResponseEntity.ok(createdProduct.getId());
-    }
 
-    @PostMapping("/products")
+
+    @PostMapping("/stockin")
     public ResponseEntity<List<Long>> createProducts(@RequestBody List<Product> products) {
         List<Product> createdProduct = inventoryService.createProducts(products);
         return ResponseEntity.ok(products.stream()
@@ -57,7 +54,7 @@ public class InventoryController {
         }
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/stockOut/{id}")
     public ResponseEntity<Long> deleteProduct(@PathVariable Long id) {
         inventoryService.deleteProduct(id);
         return ResponseEntity.ok(id);
