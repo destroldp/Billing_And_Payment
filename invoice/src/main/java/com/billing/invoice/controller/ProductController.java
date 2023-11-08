@@ -1,10 +1,9 @@
 package com.billing.invoice.controller;
 
 
-import com.billing.invoice.entity.Product;
 import com.billing.invoice.entity.ProductDetails;
-import com.billing.invoice.service.InventoryService;
 import com.billing.invoice.service.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,11 +27,14 @@ public class ProductController {
     }
 
     @PostMapping("/productId")
-    public ResponseEntity<List<Long>> createProductId(@RequestBody List<ProductDetails> productDetails) {
-        List<ProductDetails> createdProduct = productService.createProductCode(productDetails);
-        return ResponseEntity.ok(productDetails.stream()
-                .map(ProductDetails::getId)
-                .collect(Collectors.toList()));
+    public ResponseEntity createProductId( @Valid @RequestBody List<ProductDetails> productDetails) {
+
+
+    List<ProductDetails> createdProduct = productService.createProductCode(productDetails);
+    return ResponseEntity.ok(productDetails.stream()
+            .map(ProductDetails::getId)
+            .collect(Collectors.toList()));
+
     }
 
     @DeleteMapping("{id}")
