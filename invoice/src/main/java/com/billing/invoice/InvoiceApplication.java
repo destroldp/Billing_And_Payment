@@ -1,5 +1,6 @@
 package com.billing.invoice;
 
+import com.billing.invoice.entity.ProductDetails;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 import jakarta.persistence.criteria.CriteriaBuilder;
@@ -16,7 +17,8 @@ import java.util.stream.Collectors;
 public class InvoiceApplication {
 
 	public static void main(String[] args) {
-	SpringApplication.run(InvoiceApplication.class, args);
+		SpringApplication.run(InvoiceApplication.class, args);
+
 	}
 	}
 
