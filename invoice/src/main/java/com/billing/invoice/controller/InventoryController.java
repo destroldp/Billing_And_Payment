@@ -34,12 +34,11 @@ public class InventoryController {
         return product.isPresent() ? ResponseEntity.ok(product): ResponseEntity.status(HttpStatus.NOT_FOUND).body("No Product found with Product ID"+id);
     }
 
-
-
     @PostMapping("/stockin")
     public ResponseEntity<List<Long>> createProducts(@RequestBody List<Product> products) {
         List<Product> createdProduct = inventoryService.createProducts(products);
-        return ResponseEntity.ok(products.stream()
+
+        return ResponseEntity.ok(createdProduct.stream()
                 .map(Product::getId)
                 .collect(Collectors.toList()));
     }

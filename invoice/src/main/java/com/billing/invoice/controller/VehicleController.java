@@ -1,15 +1,11 @@
 package com.billing.invoice.controller;
 
 import com.billing.invoice.entity.Vehicle;
-import com.billing.invoice.entity.Vendor;
 import com.billing.invoice.service.VehicleService;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/vehicle")

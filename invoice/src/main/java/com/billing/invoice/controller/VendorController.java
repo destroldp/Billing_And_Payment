@@ -1,9 +1,6 @@
 package com.billing.invoice.controller;
 
-
-import com.billing.invoice.entity.Product;
 import com.billing.invoice.entity.Vendor;
-import com.billing.invoice.service.InventoryService;
 import com.billing.invoice.service.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

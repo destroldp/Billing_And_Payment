@@ -1,9 +1,7 @@
 package com.billing.invoice.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,20 +18,25 @@ public class Product {
     private Long id;
 
     @ManyToOne
-    @NotBlank(message = "Product ID is required")
     private ProductDetails productId;
 
     @NotNull(message = "Cost price is required")
     private BigDecimal costPrice;
 
+
+    private BigDecimal salePrice;
+
     @NotNull(message = "quantity is required")
     private BigDecimal quantity;
+    private BigDecimal remainingQuantity;
 
     @NotNull(message = "Product Total is required")
     private BigDecimal productTotal;
     @ManyToOne
     private Vendor vendorDetails;
     private String productName;
+
+    private String softDelete;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdOn;
