@@ -1,11 +1,11 @@
 package com.billing.invoice.service;
 
-import com.billing.invoice.entity.Invoice;
 import com.billing.invoice.entity.Product;
 import com.billing.invoice.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,12 +32,15 @@ public class InventoryService  {
     }
 
     public List<Product> createProducts(List<Product> products) {
-  
+        products.stream().forEach(  product -> { if (product.getCreatedOn() == null) {
+            product.setCreatedOn(new Date());}
+        });
         return  inventoryRepository.saveAll(products);
     }
     public Product updateProduct(Long id, Product product) {
         if (inventoryRepository.existsById(id)) {
             product.setId(id);
+            product.setTotalSale(product.getTotalSale().add(product.getPreviousSoldPrice()));
             return inventoryRepository.save(product);
         }
         return null;

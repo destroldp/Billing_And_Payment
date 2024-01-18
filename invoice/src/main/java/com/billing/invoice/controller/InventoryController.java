@@ -7,7 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -16,7 +19,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/v1/stock")
 public class InventoryController {
     private final InventoryService inventoryService;
-
+    private static final LocalDateTime DEFAULT_CREATED_ON = LocalDateTime.of(2000, 1, 1, 0, 0);
     @Autowired
     public InventoryController(InventoryService  inventoryService) {
         this.inventoryService = inventoryService;
@@ -25,7 +28,9 @@ public class InventoryController {
 
     @GetMapping
     public List<Product> getAllProduct() {
-        return inventoryService.getProducts();
+        return inventoryService.getProducts().stream()
+                .sorted(Comparator.nullsLast(Comparator.comparing(Product::getCreatedOn,Comparator.reverseOrder())))
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
