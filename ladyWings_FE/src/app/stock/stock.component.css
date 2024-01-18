@@ -1,0 +1,67 @@
+.nav-link {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Hover effect */
+  .nav-link:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Active link style */
+  .nav-link.active {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Container for navigation links */
+  .nav-container {
+    margin: 20px;
+    margin-left: auto; /* Push the navigation buttons to the right */
+  }
+
+  /* Apply general styles for the container */
+.highlights {
+  margin: 20px;
+}
+
+/* Apply styles for the table */
+.highlights table {
+  width: 35%;
+  border-collapse: collapse;
+  border-radius: 10px; /* Adjust the value to control the roundness of the borders */
+  overflow: hidden;    /* Ensures rounded corners are visible */
+}
+
+/* Apply styles for table cells */
+.highlights td, .highlights th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Apply styles for table header */
+.highlights th {
+  background-color: #f2f2f2;
+}
+
+/* Highlight positive values in green */
+.highlights b.positive {
+  color: green;
+}
+
+/* Highlight negative values in red */
+.highlights b.negative {
+  color: red;
+}
+
+  

@@ -1,0 +1,123 @@
+<div>
+    <h2>Add Vendor</h2>
+    <form (submit)="addVendor()" class="form-container">
+        <div class="form-row" >
+          <div class="col-md-4" >
+            <div class="form-group" >
+              <label for="vendorName">Vendor Name:</label>
+              <input type="text" id="vendorName" name="vendorName" [(ngModel)]="vendor.vendorName" class="text-input" required />
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="vendorCompany">Vendor Company:</label>
+              <input type="text" id="vendorCompany" name="vendorCompany" [(ngModel)]="vendor.vendorCompany" class="text-input" required />
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="addressLine1">Address Line 1:</label>
+              <input type="text" id="addressLine1" name="addressLine1" [(ngModel)]="vendor.vendorAddress.addressLine1" class="text-input" />
+            </div>
+          </div>
+        </div>
+    
+        <div class="form-row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="addressLine2">Address Line 2:</label>
+              <input type="text" id="addressLine2" name="addressLine2" [(ngModel)]="vendor.vendorAddress.addressLine2" class="text-input" />
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="city">City:</label>
+              <input type="text" id="city" name="city" [(ngModel)]="vendor.vendorAddress.city" class="text-input" />
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="state">State:</label>
+              <input type="text" id="state" name="state" [(ngModel)]="vendor.vendorAddress.state" class="text-input" />
+            </div>
+          </div>
+        </div>
+    
+        <div class="form-row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="country">Country:</label>
+              <input type="text" id="country" name="country" [(ngModel)]="vendor.vendorAddress.country" class="text-input" />
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="pincode">Pincode:</label>
+              <input type="text" id="pincode" name="pincode" [(ngModel)]="vendor.vendorAddress.pincode" class="text-input" />
+            </div>
+          </div>
+    
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number:</label>
+              <input type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="vendor.vendorContactDetails.phoneNumber" class="text-input" />
+            </div>
+          </div>
+        </div>
+    
+        <div class="form-row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="text" id="email" name="email" [(ngModel)]="vendor.vendorContactDetails.email" class="text-input" />
+            </div>
+          </div>
+        </div>
+    
+        <button type="submit" class="button primary-button">Add Vendor</button>
+      </form>
+  </div>
+  
+  <div class="table-container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Vendor Name</th>
+          <th>Vendor Company</th>
+          <th>Vendor City</th>
+          <th>Vendor Phone</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vendor of getDisplayedVendors()">
+          <td>{{ vendor.id }}</td>
+          <td>{{ vendor.vendorName }}</td>
+          <td>{{ vendor.vendorCompany }}</td>
+          <td>{{ vendor.vendorAddress.city }}</td>
+          <td>{{ vendor.vendorContactDetails.phoneNumber }}</td>
+          <td>
+            <button (click)="deleteVendor(vendor.id)" class="button danger-button">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="paginator-container">
+    <mat-paginator
+      [length]="vendors.length"
+      [pageSize]="pageSize"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </div>
+
+  

@@ -1,0 +1,10 @@
+/* footer.component.css */
+footer {
+    background-color: #ff69b4; /* Pink background color for the footer */
+    color: #fff; /* White text color */
+    padding: 10px; /* Add padding for spacing */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  

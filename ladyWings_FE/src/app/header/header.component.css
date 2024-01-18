@@ -1,0 +1,67 @@
+/* styles.css or styles.scss */
+
+header {
+    background-color: #ff69b4;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-image {
+    width: 72px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .italianno-font {
+    font-family: 'Italianno', cursive;
+    font-size: 56px;
+    margin: -1rch;
+    padding: 10px 15px;
+    margin-right: auto; /* Push the title to the left */
+  }
+  
+  .italianno-font1 {
+    font-family: 'Italianno', cursive;
+    font-size: 36px;
+    margin: auto;
+    text-align: left;
+    margin-right: auto;
+  }
+  /* Basic styling for navigation links */
+  .nav-link {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Hover effect */
+  .nav-link:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Active link style */
+  .nav-link.active {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Container for navigation links */
+  .nav-container {
+    margin: 20px;
+    margin-left: auto; /* Push the navigation buttons to the right */
+  }
+  

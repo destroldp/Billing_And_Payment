@@ -1,0 +1,66 @@
+<a routerLink="/stockIn" class="nav-link">Stock IN</a>
+<a routerLink="/stockOut" class="nav-link">Stock Out</a>
+
+
+<div class="table-container">
+    <table class="table">
+      <!-- ... your table headings ... -->
+      <thead>
+        <tr>
+            <th>Stock Id</th>
+            <th>Product Name</th>
+            <th>Vendor Name</th>
+            <th>Total Quantity</th> 
+            <th>Cost Price </th> 
+            <th>Sale Price </th> 
+            <th>Remaning Quantity</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stock of getDisplayedstocks() ">
+            <td>{{ stock.id }}</td>
+            <td>{{ stock.productId.productName }}</td>
+            <td>{{ stock.vendorDetails.vendorName }}</td>       
+            <td>{{ stock.quantity }}</td>
+            <td>{{ stock.costPrice }}</td>
+            <td>{{ stock.salePrice }}</td>
+            <td>{{ stock.remainingQuantity   }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="paginator-container">
+    <mat-paginator
+      [length]="stocks.length"
+      [pageSize]="pageSize"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </div>
+  <div>
+    <div class="highlights">
+      <table>
+          <tr>
+              <th>Total Investment</th>
+              <td><b class="positive">${{totalInvestment}} /-</b></td>
+          </tr>
+          <tr>
+              <th>Total Quantity</th>
+              <td><b>{{totalQuantity}}</b></td>
+          </tr>
+          <tr>
+              <th>Total Quantity Remaining</th>
+              <td><b>{{totalRemainingQuantity}}</b></td>
+          </tr>
+          <tr>
+              <th>Total Sale</th>
+              <td><b class="positive">${{totalSale}}</b></td>
+          </tr>
+          <tr>
+              <th>Total P/L</th>
+              <td><b class="{{profit_Loss < 0 ? 'negative' : 'positive'}}">${{profit_Loss}} /-</b></td>
+          </tr>
+      </table>
+  </div>
+  
+          

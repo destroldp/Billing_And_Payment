@@ -1,0 +1,67 @@
+
+<div>
+    <h2>Add Product</h2>
+    <form (submit)="submitForm()" class="form-container">
+      <div class="form-row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" name="productName" [(ngModel)]="product.productName" class="text-input" required />
+          </div>
+        </div>
+      </div>
+        <div class="form-row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="productDescription">Product Description:</label>
+            <textarea id="productDescription" name="productDescription" [(ngModel)]="product.productDescription" class="textarea"></textarea>
+          </div>
+        </div>
+      </div>
+    
+      <button type="submit" class="button primary-button">Add Product</button>
+    </form>
+    
+    
+
+    <div class="table-container">
+      <table class="table">
+        <!-- ... your table headings ... -->
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Action</th> <!-- New column for delete button -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of getDisplayedProducts()">
+            <td>{{ product.id }}</td>
+            <td>{{ product.productName }}</td>
+            <td>{{ product.productDescription }}</td>
+            <td>
+              <button (click)="deleteProduct(product.id)" class="button danger-button">
+                <i class="fas fa-trash"></i> <!-- Font Awesome delete icon -->
+                
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="paginator-container">
+      <mat-paginator
+        [length]="products.length"
+        [pageSize]="pageSize"
+        (page)="onPageChange($event)"
+      ></mat-paginator>
+    </div>
+    <div>
+
+
+
+
+    
+  

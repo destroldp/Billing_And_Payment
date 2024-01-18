@@ -1,0 +1,166 @@
+/* styles.css or styles.scss */
+body {
+    background-color: #f7b3d9; /* Set a white background color for the body */
+    margin: 0;
+    padding: 0;
+  }
+  
+  .main-content {
+    padding: 20px; /* Add padding for spacing */
+  }
+  .mat-paginator {
+    margin-top: 20px;
+    background-color: #f7b3d9;
+  }
+  
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Button Styles */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Primary Button */
+  .primary-button {
+    background-color: #000; /* Black color */
+    color: #fff;
+    border: 2px solid #000;
+    width: 30%;
+  }
+  
+  .primary-button:hover {
+    background-color: #333; /* Darker shade on hover */
+    border-color: #333;
+  }
+  
+  /* Secondary Button */
+  .secondary-button {
+    background-color: #000; /* Black color */
+    color: #fff;
+    border: 2px solid #000;
+  }
+  
+  .secondary-button:hover {
+    background-color: #333; /* Darker shade on hover */
+    border-color: #333;
+  }
+  
+  /* Danger Button */
+  .danger-button {
+    background-color: #000; /* Black color */
+    color: #fff;
+    border: 2px solid #000;
+  }
+  
+  .danger-button:hover {
+    background-color: #333; /* Darker shade on hover */
+    border-color: #333;
+  }
+
+  /* Text Input Styles */
+.text-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+  
+
+  
+  .text-input:focus {
+    border-color: #3498db; /* Highlight border color on focus */
+  }
+  
+  /* Textarea Styles */
+  .textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+  }
+
+  
+
+  
+  .textarea:focus {
+    border-color: #3498db; /* Highlight border color on focus */
+  }
+
+  .table-container {
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+  
+  .paginator-container {
+    padding-top: 10px; /* Adjust as needed */
+    background-color: #f7b3d9;
+  }
+  
+  .italianno-font {
+    font-family: 'Italianno', cursive;
+  }
+
+  /* styles.css or styles.scss */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+/* styles.css or styles.scss */
+  .footer-container {
+    padding-top: 10px; /* Adjust as needed */
+  }
+  /* styles.css or styles.scss */
+  /* product-list.component.css (or your global styles) */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Optional: Add margin for spacing */
+  }
+  
+  .table th, .table td {
+   
+    border: 1px solid #000; 
+    padding: 6px;
+    text-align: left;
+    
+  }
+  
+  .table th {
+    background-color: #f2f2f2;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+   /* Adjust the max width as needed */
+
+  }
+  .form-row {
+    display: flex;
+    padding: auto;
+    margin: left;
+}
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }

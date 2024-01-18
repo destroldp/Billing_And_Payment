@@ -1,0 +1,67 @@
+
+<div>
+    <h2>Add Stock</h2>
+    <form (submit)="addStock()" class="form-container">
+      <div class="form-row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="selectProduct">Select Product</label>
+            <select type=dropdown id="selectProduct" name="selectProduct" [(ngModel)]="stock.productId" class="text-input" required >
+                <option *ngFor="let availableProduct of products" [ngValue]="availableProduct">
+                    {{ availableProduct.productName }}
+                  </option>
+            </select>
+          </div>
+        </div>
+    
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="selectVendor">Select Vendor</label>
+            <select type=dropdown id="selectVendor" name="selectVendor" [(ngModel)]="stock.vendorDetails" class="text-input" required >
+                <option *ngFor="let availableVendor of vendors" [ngValue]="availableVendor">
+                    {{ availableVendor.vendorName }}
+                  </option>
+            </select>
+          </div>
+        </div>
+      </div>
+        <div class="form-row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="costPrice">Cost Price</label>
+            <input type="text" id="costPrice" name="costPrice" [(ngModel)]="stock.costPrice" (input)="calculateTotal()" class="text-input" required [formControl]="costPriceFormControl" />
+            <div *ngIf="costPriceFormControl.hasError('pattern')">
+              Invalid format. Please enter a numeric value with up to two decimal places.
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="salePrice">Sale Price</label>
+            <input type="text" id="salePrice" name="salePrice" [(ngModel)]="stock.salePrice" class="text-input" required [formControl]="costPriceFormControl" />
+            <div *ngIf="costPriceFormControl.hasError('pattern')">
+              Invalid format. Please enter a numeric value with up to two decimal places.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input type="text" id="quantity" name="quantity" [(ngModel)]="stock.quantity"  (input)="calculateTotal()"class="text-input" required [formControl]="quantityFormControl" />
+            <div *ngIf="quantityFormControl.hasError('pattern')">
+              Invalid format. Please enter a numeric value.
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="total">Total</label>
+            <input type="text" id="total" name="total" [(ngModel)]="stock.productTotal" class="text-input" readonly />
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="button primary-button">Add Stock</button>
+    </form>
