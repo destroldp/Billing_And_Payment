@@ -9,23 +9,7 @@ import java.io.IOException;
 @Component
 public class DatabaseBackupScheduler {
 
-    @Value("${spring.datasource.username}")
-    private String username;
-
-    @Value("${spring.datasource.password}")
-    private String password;
-
-    @Value("${spring.datasource.url}")
-    private String url;
-
-    @Value("${backup.file.path}")
-    private String backupFilePath;
-
-    @Value("${pgdump.path}")
-    private String pgDumpPath;
-
-
-    @Scheduled(cron = "0 * * * * ?")
+    @Scheduled(cron = "30 12 * * * ?")
     public void backupDatabase() {
         try {
             // Replace "your-batch-file.bat" with the actual name of your batch file
