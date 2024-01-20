@@ -1,0 +1,77 @@
+
+<div>
+    <h2>Maintenance</h2>
+    <form (submit)="CreateBill()" class="form-container">
+      <div class="form-row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="billtype">Bill Type:</label>
+            <select id="dropdown" [(ngModel)]="bills.BillTypes" name="selectedOption" class="text-input" >
+                <option value="FUEL">FUEL</option>
+                <option value="COURIER">COURIER</option>
+                <option value="FOOD">FOOD</option>
+                <option value="ENTRYTICKETS">ENTRYTICKETS</option>
+                <option value="DELIVERY">DELIVERY</option>
+                <option value="IMPORTS">IMPORTS</option>
+                <option value="PACKAGING">PACKAGING</option>
+                <option value="REPAIR">REPAIR</option>
+                <option value="CUSTOMIZATION">CUSTOMIZATION</option>
+              </select>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+              <label for="billDescription">Bill Description</label>
+              <input type="text" id="billDescription" name="billDescription" [(ngModel)]="bills.description" class="text-input" required />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="billAmount">Bill Amount</label>
+              <input type="text" id="billAmount" name="billAmount" [(ngModel)]="bills.amount" class="text-input" required />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="billDate">Bill Date</label>
+              <input type="Date" id="billDate" name="billDate" [(ngModel)]="bills.billingDate" class="text-input" required />
+            </div>
+          </div>
+      </div>
+      <button type="submit" class="button primary-button">Submit Bill</button>
+    </form>
+    
+    
+
+    <div class="table-container">
+        <table class="table">
+          <!-- ... your table headings ... -->
+          <thead>
+            <tr>
+              <th>Bill Id</th>
+              <th>Bill Type</th>
+              <th>Bill Description</th>
+              <th>Bill Amount</th> 
+              <th>Bill Date</th> 
+              <th>Action</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let bill of getDisplayedBills()">
+              <td>{{ bill.id }}</td>
+              <td>{{ bill.type }}</td>
+              <td>{{ bill.description }}</td>
+              <td>{{ bill.amount }}</td>
+              <td>{{ bill.billingDate }}</td>
+              <td>
+                <button (click)="deleteBill(bill.id)" class="button danger-button">
+                  <i class="fas fa-trash"></i> <!-- Font Awesome delete icon -->
+                  
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    <div>
+  

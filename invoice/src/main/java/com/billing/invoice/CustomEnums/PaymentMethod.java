@@ -1,4 +1,4 @@
-package com.billing.invoice.entity;
+package com.billing.invoice.CustomEnums;
 
 
 public enum PaymentMethod {
