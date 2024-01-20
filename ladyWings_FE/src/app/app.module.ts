@@ -22,6 +22,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { StockInComponent } from './stock-in/stock-in.component';
 import { StockOutComponent } from './stock-out/stock-out.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaintenanceComponent } from './maintenance/maintenance.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AnalyticsComponent,
     HomepageComponent,
     StockInComponent,
-    StockOutComponent
+    StockOutComponent,
+    MaintenanceComponent
   ],
   imports: [
     BrowserModule,

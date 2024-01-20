@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../app/customobjects/Product';
 import { Vendor } from '../app/customobjects/Vendor';
 import { Stock } from '../app/customobjects/Stock';
+import { MaintenanceBill } from './customobjects/MaintenanceBill';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,17 @@ getDefaultStock(): Stock{
       productName: '',
       remainingQuantity: 0,
       softDelete : ''
+  }
+
+}
+
+getDefaultBills(): MaintenanceBill{
+  return {
+    id:0,
+    description: '',
+    BillTypes:'string',
+    amount: 0,
+    billingDate: new Date
   }
 
 }

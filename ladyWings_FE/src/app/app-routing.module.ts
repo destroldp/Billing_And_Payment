@@ -6,6 +6,7 @@ import { VendorsComponent } from './vendors/vendors.component';
 import { StockComponent } from './stock/stock.component';
 import { StockInComponent } from './stock-in/stock-in.component';
 import { StockOutComponent } from './stock-out/stock-out.component';
+import { MaintenanceComponent } from './maintenance/maintenance.component';
 
 const routes: Routes = [
   { path: 'product', component: ProductComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'stock', component: StockComponent },
   { path: 'stockIn', component: StockInComponent },
   { path: 'stockOut', component: StockOutComponent },
+  { path: 'bills', component: MaintenanceComponent },
 ];
 
 @NgModule({
